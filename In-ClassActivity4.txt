@@ -1,0 +1,24 @@
+/*This is the second in class activity
+We are writing some introductory queries using our database named: dialaE_Winter2019_Database
+We are a group of three students:
+1. Miles
+2. Adrian 
+3. Abdullah
+*/
+
+SELECT vend_name, vend_state, vend_zip --show vendor name, state, and zip from vendors table that begin with a, b, c, or, d, by descending vendor name
+FROM Vendors
+WHERE vend_name LIKE '[ABCD]%' 
+ORDER BY vend_name DESC;
+
+SELECT cust_id, cust_name, cust_contact --show customer id, name, and contact from customers table that don't have the third letter as an n, and that end in s
+FROM Customers
+WHERE cust_contact LIKE '__[^n]%s';
+
+SELECT RTRIM(cust_address)+' ('+RTRIM(cust_city)+' )'+' ('+RTRIM(cust_zip)+')'+'('+RTRIM(cust_state)+')'+'('+RTRIM(cust_country)+')' AS cust_full_address --create full customer address by adding their address, zip, state, and country together from the customers table
+FROM Customers;
+
+SELECT quantity*2 AS doubled_quantity, item_price/2 AS halved_quantity, quantity*item_price AS expanded_price --create a field with doubled item quantity, halved item price, and expanded price
+FROM OrderItems;
+
+
